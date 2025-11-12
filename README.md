@@ -10,3 +10,7 @@ A RAG chatbot that can answer questions related to company policies
 - Add necessary libraries and tools in requirements.txt
 - Intall the libraries and create folder as local packages 
 
+# Step -2
+- Define the logging and exception 
+- set the Openai LLM key in .env file 
+- set the necessary confiquration in config file
