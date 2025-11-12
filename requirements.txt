@@ -1,0 +1,12 @@
+langchain
+langchain-openai
+openai
+faiss-cpu
+pydantic
+python-dotenv
+pandas
+python-multipart
+requests
+fastapi
+uvicorn[standard]
+-e .
