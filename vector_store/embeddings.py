@@ -15,6 +15,7 @@ class EmbeddingGenerator:
             raise CustomException("OpenAI API key is required")
         
         openai.api_key = self.api_key
+
     
     def generate_embeddings(self, texts: List[str]) -> List[List[float]]:
         """Generate embeddings for a list of texts."""
@@ -36,3 +37,5 @@ class EmbeddingGenerator:
     def generate_embedding(self, text: str) -> List[float]:
         """Generate embedding for a single text."""
         return self.generate_embeddings([text])[0]
+    
+    
