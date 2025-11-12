@@ -29,6 +29,9 @@ class FAISSManager:
             # Normalize embeddings for cosine similarity
             embeddings_np = np.array(embeddings).astype('float32')
             faiss.normalize_L2(embeddings_np)
+            
+            # Add embeddings to the index
+            self.index.add(embeddings_np)
             logger.info(f"Created FAISS index with {len(embeddings)} vectors")
 
         except Exception as e:
@@ -71,15 +74,18 @@ class FAISSManager:
 
             results = []
             for score, idx in zip(scores[0], indices[0]):
-                if idx < len(self.metadata) and score >= Config.SIMILARITY_THRESHOLD:
+                # For L2 distance, lower scores mean higher similarity
+                # Convert to similarity score (higher is better)
+                similarity_score = 1.0 / (1.0 + score)
+                
+                if idx < len(self.metadata) and idx >= 0:  # Just check valid index
                     results.append({
                         'metadata': self.metadata[idx],
-                        'score': float(score)
+                        'score': float(similarity_score)
                     })
 
-                logger.info(f"Search returned {len(results)} results")
-
-                return scores[0].tolist(), results
+            logger.info(f"Search returned {len(results)} results")
+            return scores[0].tolist(), results
             
         except Exception as e:
             logger.error(f"Error during FAISS search: {str(e)}")

@@ -7,7 +7,7 @@ class Logger:
         # Create logs directory if it doesn't exist
         os.makedirs("logs", exist_ok=True)
         
-        self.logger = logging.getLogger("CustomerFeedbackAnalyzer")
+        self.logger = logging.getLogger("CompanyPolicyChatbot")
         self.logger.setLevel(logging.INFO)
         
         # Create formatter

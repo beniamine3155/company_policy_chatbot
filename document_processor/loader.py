@@ -54,7 +54,7 @@ class DocumentLoader:
         return documents
 
 
-    def load_txt(self, file_path: str)-> str:
+    def _load_txt(self, file_path: str)-> str:
         """Load text file"""
         try:
             with open(file_path, 'r', encoding='utf-8') as file:
@@ -65,7 +65,7 @@ class DocumentLoader:
             raise CustomException(f"Failed to load text file {file_path}: {e}")
 
 
-    def load_pdf(self, file_path: str) -> str:
+    def _load_pdf(self, file_path: str) -> str:
         """Load PDF file"""
         try:
             reader = PdfReader(file_path)
@@ -78,7 +78,7 @@ class DocumentLoader:
             raise CustomException(f"Failed to load PDF file {file_path}: {e}")
 
 
-    def load_docx(self, file_path: str)-> str:
+    def _load_docx(self, file_path: str)-> str:
         """Load DOCX file"""
         try:
             doc = Document(file_path)
@@ -91,7 +91,7 @@ class DocumentLoader:
             raise CustomException(f"Failed to load DOCX file {file_path}: {e}")
 
 
-    def load_csv(self, file_path: str) -> str:
+    def _load_csv(self, file_path: str) -> str:
         """Load CSV file"""
         try:
             df = pd.read_csv(file_path)

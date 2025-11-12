@@ -10,7 +10,7 @@ class ConversationMemory:
 
     def __init__(self, storage_path: str = "conversation_memory.json"):
         self.storage_path = storage_path
-        self.conversation = self.load_conversations()
+        self.conversations = self.load_conversations()
 
 
     def load_conversations(self) -> Dict[str, List[Dict[str, str]]]:
