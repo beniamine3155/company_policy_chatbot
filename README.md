@@ -17,7 +17,11 @@ A RAG chatbot that can answer questions related to company policies
 - set the necessary confiquration in config file
 
 
-# Stepp -3 
+# Step -3 
 - Collect the data from google, a company policy manual pdf file
 - Manually create it, leave, remoreto work policy data file as .txt format
+
+
+# Step -4
+- implement the multiple documents loader method
 

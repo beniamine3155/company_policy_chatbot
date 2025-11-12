@@ -9,4 +9,7 @@ python-multipart
 requests
 fastapi
 uvicorn[standard]
+pypdf
+python-docx
+
 -e .
