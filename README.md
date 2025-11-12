@@ -29,4 +29,6 @@ A RAG chatbot that can answer questions related to company policies
 
 # Step -5 
 - Retrieve the data from vectorstore 
+- generate response 
+- Store the concersation history in memory_manager.py
 
