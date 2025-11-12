@@ -1,0 +1,25 @@
+INFORMATION TECHNOLOGY POLICY
+
+1. Acceptable Use
+Company equipment for business purposes only
+No illegal downloading or file sharing
+Personal use limited to breaks and non-work hours
+
+2. Security Requirements
+Strong passwords required (min 12 characters)
+Multi-factor authentication mandatory
+Regular software updates required
+No unauthorized software installation
+
+3. Data Protection
+Confidential data must be encrypted
+No storing company data on personal devices
+Regular backup of important files
+Report lost devices immediately
+
+4. Network Usage
+VPN required for remote access
+No connection of personal devices to company network
+Bandwidth-intensive activities restricted during work hours
+
+Violations may result in disciplinary action up to termination.
