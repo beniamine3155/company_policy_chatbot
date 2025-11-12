@@ -27,4 +27,6 @@ A RAG chatbot that can answer questions related to company policies
 - implemented splitter and embeddings functionality
 - Implement faiss vector store operations-> creat_index, add_documents, search, save_index, load_index
 
+# Step -5 
+- Retrieve the data from vectorstore 
 
