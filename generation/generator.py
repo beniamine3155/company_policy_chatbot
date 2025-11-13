@@ -25,17 +25,28 @@ class ResponseGenerator:
             # Prepare context text (shorter for speed)
             context_text = self.prepare_context_fast(context)
 
-            # System prompt with clear instructions for detailed responses
+            # Prepare conversation history
+            history_text = self.prepare_history(conversation_history)
+
+            # System prompt that handles both policy and conversation questions
             system_message = """You are an HR assistant for company policies. 
-            Answer questions based ONLY on the provided context.
-            Provide detailed answers with 3-4 lines of explanation when possible.
-            Include relevant details, requirements, and process steps.
-            If the answer cannot be found in the context, respond with: 
-            "I don't have that information in the company policy documents. Please contact HR directly for assistance."
+            
+            For POLICY QUESTIONS: Answer based on the provided policy context with 3-4 lines of detailed explanation.
+            For CONVERSATION QUESTIONS (like "what was my last message", "what did I ask before"): Use the conversation history.
+            
+            If asking about previous conversation, check the history and provide details.
+            If asking about policies but info not in context, say: "I don't have that information in the company policy documents. Please contact HR directly for assistance."
+            
             Be professional and thorough."""
 
-            # Simple user message
-            user_message = f"Context: {context_text}\n\nQuestion: {query}\n\nProvide a detailed answer:"
+            # User message with both context and history
+            user_message = f"""Policy Context: {context_text}
+
+Conversation History: {history_text}
+
+Question: {query}
+
+Provide a detailed answer:"""
 
             response = openai.chat.completions.create(
                 model=self.model,
