@@ -23,8 +23,8 @@ class Config:
     SIMILARITY_THRESHOLD = 0.7
 
     # Web Search Configuration
-    ENABLE_WEB_SEARCH = True
-    WEB_SEARCH_TIMEOUT = 10
+    # ENABLE_WEB_SEARCH = True
+    # WEB_SEARCH_TIMEOUT = 10
 
     # API Configuration
     API_HOST = "0.0.0.0"

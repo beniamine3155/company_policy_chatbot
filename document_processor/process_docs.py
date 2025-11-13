@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""
-Simple script to process documents and create FAISS index
-"""
-
 import os
 import sys
 
@@ -115,6 +110,6 @@ if __name__ == "__main__":
     processor = DocumentProcessor()
     success = processor.process_documents()
     if success:
-        print("You can now start the chatbot and ask questions!")
+        print("Starting the chatbot and able to ask questions!")
     else:
-        print("Document processing failed. Please check the errors above.")
+        print("Document processing failed.")

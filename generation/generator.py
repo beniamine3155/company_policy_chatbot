@@ -30,7 +30,7 @@ class ResponseGenerator:
 
             # System prompt that handles both policy and conversation questions
             system_message = """You are an HR assistant for company policies. 
-            
+    
             For POLICY QUESTIONS: Answer based on the provided policy context with 3-4 lines of detailed explanation.
             For CONVERSATION QUESTIONS (like "what was my last message", "what did I ask before"): Use the conversation history.
             
@@ -42,11 +42,11 @@ class ResponseGenerator:
             # User message with both context and history
             user_message = f"""Policy Context: {context_text}
 
-Conversation History: {history_text}
+            Conversation History: {history_text}
 
-Question: {query}
+            Question: {query}
 
-Provide a detailed answer:"""
+            Provide a detailed answer:"""
 
             response = openai.chat.completions.create(
                 model=self.model,

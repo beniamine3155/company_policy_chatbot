@@ -53,7 +53,7 @@ class DocumentLoader:
             
         return documents
 
-
+    # _method_name use for internal use within the class
     def _load_txt(self, file_path: str)-> str:
         """Load text file"""
         try:
