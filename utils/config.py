@@ -9,17 +9,17 @@ class Config:
 
     # OpenAI configuration
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-    OPENAI_MODEL = "gpt-4"
+    OPENAI_MODEL = "gpt-3.5-turbo"  # Much faster than GPT-4
     EMBEDDING_MODEL = "text-embedding-ada-002"
 
 
     # Vector Store Configuration
     VECTOR_STORE_PATH = "vector_store"
-    CHUNK_SIZE = 1000
-    CHUNK_OVERLAP = 200
+    CHUNK_SIZE = 500  # Smaller chunks = faster processing
+    CHUNK_OVERLAP = 100
 
     # Retrieval Configuration
-    TOP_K_RESULTS = 3
+    TOP_K_RESULTS = 2  # Fewer results = faster processing
     SIMILARITY_THRESHOLD = 0.7
 
     # Web Search Configuration

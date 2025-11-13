@@ -8,7 +8,7 @@ import uvicorn
 import os
 import shutil
 
-from config import Config
+from utils.config import Config
 from utils.logger import logger
 from document_processor.loader import DocumentLoader
 from document_processor.splitter import DocumentSplitter
@@ -17,6 +17,7 @@ from vector_store.faiss_manager import FAISSManager
 from retrieval.retriever import DocumentRetriever
 from generation.generator import ResponseGenerator
 from database.memory_manager import ConversationMemory
+from document_processor.process_docs import DocumentProcessor
 
 
 
@@ -37,8 +38,12 @@ try:
     document_retriever = DocumentRetriever(faiss_manager, embedding_generator)
     response_generator = ResponseGenerator()
     conversation_memory = ConversationMemory()
+    document_processor = DocumentProcessor()
     
-    # Load existing index
+    # Auto process documents if needed
+    document_processor.auto_process_if_needed()
+    
+    # Load index
     try:
         faiss_manager.load_index()
         logger.info("Loaded existing vector index")

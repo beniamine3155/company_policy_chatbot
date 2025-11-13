@@ -1,0 +1,19 @@
+2025-11-13 09:22:26,191 - CompanyPolicyChatbot - INFO - Successfully loaded: ../data/company_policy_manual.pdf
+2025-11-13 09:22:26,192 - CompanyPolicyChatbot - INFO - Successfully loaded: ../data/it_policy.txt
+2025-11-13 09:22:26,192 - CompanyPolicyChatbot - INFO - Successfully loaded: ../data/remote_work_policy.txt
+2025-11-13 09:22:26,192 - CompanyPolicyChatbot - INFO - Successfully loaded: ../data/leav_policy.txt
+2025-11-13 09:22:26,193 - CompanyPolicyChatbot - INFO - Split 4 documents into 155 chunks
+2025-11-13 09:22:29,849 - CompanyPolicyChatbot - INFO - Generated embeddings for 155 texts
+2025-11-13 09:22:29,864 - CompanyPolicyChatbot - INFO - Created FAISS index with 155 vectors
+2025-11-13 09:22:29,864 - CompanyPolicyChatbot - INFO - Added 155 embeddings to FAISS index
+2025-11-13 09:22:29,868 - CompanyPolicyChatbot - INFO - Saved FAISS index and metadata to vector_store
+2025-11-13 09:24:06,796 - CompanyPolicyChatbot - INFO - Successfully loaded: ../data/company_policy_manual.pdf
+2025-11-13 09:24:06,796 - CompanyPolicyChatbot - INFO - Successfully loaded: ../data/it_policy.txt
+2025-11-13 09:24:06,797 - CompanyPolicyChatbot - INFO - Successfully loaded: ../data/remote_work_policy.txt
+2025-11-13 09:24:06,797 - CompanyPolicyChatbot - INFO - Successfully loaded: ../data/leav_policy.txt
+2025-11-13 09:24:06,797 - CompanyPolicyChatbot - INFO - Split 4 documents into 155 chunks
+2025-11-13 09:24:11,217 - CompanyPolicyChatbot - INFO - Generated embeddings for 155 texts
+2025-11-13 09:24:11,226 - CompanyPolicyChatbot - INFO - Created FAISS index with 155 vectors
+2025-11-13 09:24:11,226 - CompanyPolicyChatbot - INFO - Added 155 embeddings to FAISS index
+2025-11-13 09:24:11,228 - CompanyPolicyChatbot - INFO - Saved FAISS index to vector_store/vector_index.index
+2025-11-13 09:24:11,228 - CompanyPolicyChatbot - INFO - Saved metadata to vector_store/vector_index.metadata

@@ -1,6 +1,6 @@
 from typing import List, Dict, Any
 from utils.logger import logger
-from config import Config
+from utils.config import Config
 
 class DocumentSplitter:
     """Handles documents splitting into chunks"""

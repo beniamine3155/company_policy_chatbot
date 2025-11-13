@@ -6,18 +6,20 @@ from typing import List, Dict, Any, Tuple
 
 from utils.logger import logger
 from utils.exceptions import CustomException
-from config import Config
+from utils.config import Config
 
 class FAISSManager:
     """Manages FAISS vector store operations."""
 
     def __init__(self, index_path: str = None):
-        self.index_path = index_path or Config.VECTOR_STORE_PATH
+        # Use vector_store as directory, not as file prefix
+        self.vector_store_dir = index_path or Config.VECTOR_STORE_PATH
+        self.index_path = os.path.join(self.vector_store_dir, "vector_index")
         self.index = None
         self.metadata = []
 
-        # Create directory if it doesn't exist
-        os.makedirs(os.path.dirname(self.index_path) if os.path.dirname(self.index_path) else '.', exist_ok=True)
+        # Create vector_store directory if it doesn't exist
+        os.makedirs(self.vector_store_dir, exist_ok=True)
 
 
     def create_index(self, embeddings: List[List[float]]) -> None:
@@ -100,13 +102,16 @@ class FAISSManager:
         
         try:
             # Save FAISS index
-            faiss.write_index(self.index, f"{self.index_path}.index")
+            index_file = f"{self.index_path}.index"
+            faiss.write_index(self.index, index_file)
 
             # Save metadata
-            with open(f"{self.index_path}.metadata", 'wb') as f:
+            metadata_file = f"{self.index_path}.metadata"
+            with open(metadata_file, 'wb') as f:
                 pickle.dump(self.metadata, f)
 
-            logger.info(f"Saved FAISS index and metadata to {self.index_path}")
+            logger.info(f"Saved FAISS index to {index_file}")
+            logger.info(f"Saved metadata to {metadata_file}")
 
         except Exception as e:
             logger.error(f"Error saving FAISS index: {str(e)}")
@@ -121,7 +126,7 @@ class FAISSManager:
             metadata_file = f"{self.index_path}.metadata"
             
             if not os.path.exists(index_file) or not os.path.exists(metadata_file):
-                logger.warning("Index files not found, creating new index")
+                logger.warning(f"Index files not found in {self.vector_store_dir}, creating new index")
                 return
             
             self.index = faiss.read_index(index_file)
@@ -129,12 +134,21 @@ class FAISSManager:
             with open(metadata_file, 'rb') as f:
                 self.metadata = pickle.load(f)
             
-            logger.info(f"Loaded index with {len(self.metadata)} documents")
+            logger.info(f"Loaded index with {len(self.metadata)} documents from {self.vector_store_dir}")
             
         except Exception as e:
             logger.error(f"Error loading index: {str(e)}")
             raise CustomException(f"Failed to load index: {str(e)}")
 
+    def reset_index(self) -> None:
+        """Reset the FAISS index and metadata."""
+        try:
+            self.index = None
+            self.metadata = []
+            logger.info("Reset FAISS index and metadata")
+        except Exception as e:
+            logger.error(f"Error resetting index: {str(e)}")
+            raise CustomException(f"Failed to reset index: {str(e)}")
             
         
                                       

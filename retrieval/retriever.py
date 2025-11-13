@@ -3,7 +3,7 @@ from utils.logger import logger
 from utils.exceptions import CustomException
 from vector_store.embeddings import EmbeddingGenerator
 from vector_store.faiss_manager import FAISSManager
-from config import Config
+from utils.config import Config
 
 
 class DocumentRetriever:

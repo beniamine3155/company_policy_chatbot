@@ -34,3 +34,4 @@ A RAG chatbot that can answer questions related to company policies
 
 # Step -6
 - generate fastapi endpoints
+- implement the ui
