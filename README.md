@@ -4,7 +4,7 @@ A Retrieval Augmented Generation (RAG) chatbot that helps employees get answers 
 
 ## Project Overview
 
-This is a job task project that creates an intelligent chatbot system for company policy inquiries. The chatbot can process various document formats and provide accurate answers based on company policy documents.
+This is an intelligent chatbot system for company policy inquiries. The chatbot can process various document formats and provide accurate answers based on company policy documents also can manage chat history and how to handle irrelevant questions.
 
 ## Project Demo Video
 
